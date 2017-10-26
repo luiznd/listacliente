@@ -1,7 +1,11 @@
 # Cadastro de Clientes
+
+
 Projeto de criação de tarefas utilizando o zendframework PHP com persistência doctrine, base de dados mysql, bootstrap e etc..
 
 Foco do projeto - > Listagem, Inclusão, Edição e Exclusão de Clientes.
+
+Criar a pasta "cliente" e extrair tudo para a pasta "cliente"
 
 Pasta dos sources do projeto module/Application 
 
