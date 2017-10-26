@@ -1,0 +1,61 @@
+<?php echo $this->headTitle('Listagem de Clientes ') ?> 
+<h3>Listagem de Clientes</h3>
+<table class="table table-striped">
+    <tr>
+        <th>Cliente</th>
+        <th>Foto</th>        
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Telefone</th>     
+        <th>Data Modificação</th>            
+        <th>EDITAR</th>
+        <th>EXCLUIR</th>
+    </tr>
+    <?php if(!$this->lista){?>
+            <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    <?php }else{?>     
+    <?php foreach ($this->lista as $f): ?>
+        <tr>
+            <td><?php echo $f->getId(); ?></td>
+            <td><img src="<?php echo $f->getFoto(); ?>" width="50" height="50" /></td>
+            <td><?php echo $f->getNome(); ?></td>
+            <td><?php echo $f->getEmail(); ?></td>
+            <td><?php echo $f->getTelefone(); ?></td>
+            <td><?php echo date_format($f->getCreated(), 'd/m/Y H:i:s'); ?></td>
+            <td>
+                <a href="<?php
+                echo $this->url('rota2', array(
+                    'action' => 'editar', 'id' => $f->getId()
+                ));
+                ?>">
+                    <span class="glyphicon glyphicon glyphicon-pencil"></span>
+                </a>
+            </td>
+            <td>
+                <a href="<?php
+                echo $this->url('rota2', array(
+                    'action' => 'excluir', 'id' => $f->getId()
+                ));
+                ?>">
+                    <span class="glyphicon glyphicon glyphicon-remove"></span>
+                </a>
+            </td>
+        </tr>
+<?php endforeach; ?>
+<?php } ?>          
+</table>
+<a class="btn btn-success pull-left" href="<?php
+                echo $this->url('rota2', array(
+                    'action' => 'adicionar'
+                ));
+                ?>">+ Adicionar Cliente</a>
+<br>

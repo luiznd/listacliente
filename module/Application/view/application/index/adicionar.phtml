@@ -1,0 +1,37 @@
+<?php echo $this->headTitle('Cadastrar Cliente ') ?> 
+<h3>Cadastrar Cliente</h3>
+<div>           
+    <form method="post" enctype="multipart/form-data">   
+        <table class="table table-striped">
+            <tr>
+                <th>Cliente</th>
+                <th>Foto</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Telefone</th>                     
+                <th>Data Criação</th>        
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td></td>
+                <td><div class="form-group"><input class="form-control" type="file" name="foto" value="" id="foto"></div></td>                
+                <td><div class="form-group"><input class="form-control" type="text" name="nome" value=""></div></td>
+                <td><div class="form-group"><input class="form-control" type="text" name="email" value=""></div></td> 
+                <td><div class="form-group"><input class="form-control" type="text" name="telefone" value=""></div></td>                 
+                <td><?php echo date_format(new datetime(), 'd/m/Y H:i:s'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table> 
+        <br><br>
+        <table>
+            <tr>
+                <td><input class="btn btn-success pull-left" type="submit" value="Salvar"> </td>
+                <td><p><a class="btn btn-primary pull-left" href="<?php echo $this->url('application/default', array('controller' => 'index', 'action' => 'index'));
+            ?>">Listar Clientes</a></p></td>
+            </tr>
+        </table>
+        <br>
+    </form>
+</div>

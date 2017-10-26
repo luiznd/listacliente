@@ -1,0 +1,46 @@
+<?php echo $this->headTitle('Edição de Cliente ') ?> 
+<h3>Editar Cliente</h3>
+<div>           
+    <form method="post" enctype="multipart/form-data">   
+        <table class="table table-striped">
+            <tr>
+                <th>Cliente</th>
+                <th>Foto</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Telefone</th>    
+                <th>Data Modificação</th>        
+                <th>EDITAR</th>
+                <th>EXCLUIR</th>
+            </tr>
+            <tr>
+                <td><?php echo $f->getId(); ?></td>
+                <td><img src="<?php echo $f->getFoto(); ?>" width="200" height="200" /><p><br>Altera Foto:<div class="form-group"><input class="form-control" type="file" name="foto" value="" id="foto"></div></p></td>                
+                <td><div class="form-group"><input class="form-control" type="text" name="nome" value="<?php echo $this->f->getNome(); ?>"></div></td>
+                <td><div class="form-group"><input class="form-control" type="text" name="email" value="<?php echo $this->f->getEmail(); ?>"></div></td> 
+                <td><div class="form-group"><input class="form-control" type="text" name="telefone" value="<?php echo $this->f->getTelefone(); ?>"></div></td>                    
+                <td><?php echo date_format($f->getCreated(), 'd/m/Y H:i:s'); ?></td>
+                <td>
+                </td>
+                <td>
+                    <a href="<?php
+                    echo $this->url('rota2', array(
+                        'action' => 'excluir', 'id' => $f->getId()
+                    ));
+                    ?>">
+                        <span class="glyphicon glyphicon glyphicon-remove"></span>
+                    </a>
+                </td>
+            </tr>
+        </table> 
+        <br><br>
+        <table>
+            <tr>
+                <td><input class="btn btn-success pull-left" type="submit" value="Salvar"> </td>
+                <td><p><a class="btn btn-primary pull-left" href="<?php echo $this->url('application/default', array('controller' => 'index', 'action' => 'index'));
+            ?>">Listar Clientes</a></p></td>
+            </tr>
+        </table>
+        <br>
+    </form>
+</div>
